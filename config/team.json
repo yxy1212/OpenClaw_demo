@@ -1,0 +1,72 @@
+{
+  "project": "OpenClaw_demo",
+  "description": "开发团队需求主文档项目",
+  "version": "1.0.0",
+  "created": "2026-03-04",
+  "team": {
+    "项目大肘子": {
+      "role": "需求分析师 & 项目经理",
+      "capabilities": [
+        "需求对接",
+        "需求分析",
+        "需求设计",
+        "文档产出",
+        "项目管理"
+      ],
+      "agent_file": "agents/项目大肘子.md",
+      "config": {
+        "runtime": "subagent",
+        "thinking": "medium"
+      }
+    },
+    "编程大拿": {
+      "role": "全栈开发工程师",
+      "capabilities": [
+        "技术设计",
+        "代码开发",
+        "Git操作",
+        "Bug修复",
+        "测试回归"
+      ],
+      "agent_file": "agents/编程大拿.md",
+      "config": {
+        "runtime": "subagent",
+        "thinking": "high"
+      }
+    },
+    "运维大师": {
+      "role": "DevOps工程师",
+      "capabilities": [
+        "CI/CD配置",
+        "流水线部署",
+        "容器化部署",
+        "环境管理",
+        "监控运维"
+      ],
+      "agent_file": "agents/运维大师.md",
+      "config": {
+        "runtime": "subagent",
+        "thinking": "medium"
+      }
+    }
+  },
+  "workflow": {
+    "stages": [
+      {
+        "name": "需求阶段",
+        "agent": "项目大肘子",
+        "output": ["PRD", "需求文档", "原型设计"]
+      },
+      {
+        "name": "开发阶段",
+        "agent": "编程大拿",
+        "output": ["技术方案", "源代码", "测试用例"]
+      },
+      {
+        "name": "部署阶段",
+        "agent": "运维大师",
+        "output": ["CI/CD配置", "部署脚本", "环境配置"]
+      }
+    ]
+  }
+}
